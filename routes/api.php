@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Platform\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//   return $request->user();
+// });
+
+Route::get('/platform/test/{name}', [UserController::class, 'test']);
+Route::post('/platform/testpost', [UserController::class, 'testPost']);
+Route::get('/platform/user_info/{user_id}', [UserController::class, 'info']);
